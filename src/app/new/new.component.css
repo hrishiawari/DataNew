@@ -1,0 +1,6 @@
+#HideDiv{
+    display: none;
+}
+#HideDiv.active{
+    display: block;
+}
