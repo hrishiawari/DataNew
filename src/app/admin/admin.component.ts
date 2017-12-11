@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import{AdminService} from '../Services/admin.service'
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -12,13 +12,19 @@ export class AdminComponent implements OnInit {
 Add:FormGroup;
 ImgUrl: any;
 data:any;
+
+usNm:string;
   constructor(
     private FBuild:FormBuilder,
-    private adser:AdminService
-  
+    private adser:AdminService,
+  private acRt:ActivatedRoute
   ) { }
 
   ngOnInit() {
+      this.acRt.params.subscribe(
+        params=>this.usNm=params['usNm']
+      );
+
     this.Add=this.FBuild.group({
       title:['',Validators.required],
       disc:['',Validators.required]

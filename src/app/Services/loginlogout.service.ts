@@ -26,15 +26,16 @@ export class LoginlogoutService {
 
     if (data.User == "admin" && data.Pass == "admin") {
       localStorage.setItem('currentUser', data.User)
-      this.rout.navigate(['/admin']);
+      this.rout.navigate(['/admin',data.User]);
       console.log(data);
       this.val.emit({
         User: data.user,
         isLogin: 'true'
       })
     } else if (data.User == "head" && data.Pass == "head") {
+      
       localStorage.setItem('currentUser', data.User)
-      this.rout.navigate(['/head']);
+      this.rout.navigate(['/head', data.User]);
       console.log(data);
       this.val.emit({
         User: data.user,
@@ -42,7 +43,7 @@ export class LoginlogoutService {
       })
     } else if (data.User == "employee" && data.Pass == "employee") {
       localStorage.setItem('currentUser', data.User)
-      this.rout.navigate(['/employee']);
+      this.rout.navigate(['/employee', data.User]);
       
       console.log(data);
       this.val.emit({
@@ -56,7 +57,7 @@ export class LoginlogoutService {
   }
   logout() {
     localStorage.removeItem('currentUser');
-
+    this.rout.navigate(['/'])
 
   }
   calling(callback: any) {

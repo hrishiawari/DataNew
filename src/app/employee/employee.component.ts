@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-
-  constructor() { }
+usNm:string;
+  constructor(
+    private acRt:ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.acRt.params.subscribe(
+      params=>this.usNm=params['usNm']
+    );
   }
 
 }

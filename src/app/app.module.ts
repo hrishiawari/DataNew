@@ -8,6 +8,7 @@ import{HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import{AdminService} from '../app/Services/admin.service'
 // import {LoginlogoutService} from '../app/Services/loginlogout.service'
+import{GaurdserService} from '../app/Services/gaurdser.service'
 
 import { AppComponent } from './app.component';
 import { AddEmpComponent } from './add-emp/add-emp.component';
@@ -32,12 +33,13 @@ import { LoginlogoutService } from './Services/loginlogout.service';
     NavbarComponent,
     NewComponent,
     AboutusComponent,
+    
 
   ],
   imports: [
     BrowserModule,RouterModule,Approuter ,HttpClientModule,HttpModule,FormsModule,ReactiveFormsModule
   ],
-  providers: [FirstServiceService,AdminService,LoginlogoutService],
+  providers: [FirstServiceService,AdminService,GaurdserService,LoginlogoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
