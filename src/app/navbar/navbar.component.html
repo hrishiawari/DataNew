@@ -1,5 +1,5 @@
 <nav class="navbar navbar-toggleable-md">
-  <button class="navbar-toggler navbar-toggler-right" style="border:1px solid red;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-inverse bg-inverse navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon" ></span>
   </button>
   
@@ -17,14 +17,14 @@
       </li>
     </ul>
     <!-- <form class="ajax-form" id="contactForm" > -->
-      <div *ngIf="!usr">
-    <form class="form-inline my-2 my-lg-0" [formGroup]="myFrm" (ngSubmit)="onFrmSub();reset()" novalidate >
+      <div *ngIf="!isLogin">
+    <form class="form-inline my-2 my-lg-0" [formGroup]="myFrm" (ngSubmit)="onFrmSub()" novalidate >
       <input class="form-control mr-sm-2" type="text" placeholder="Username" formControlName="User">
       <input class="form-control mr-sm-2" type="text" placeholder="Password" formControlName="Pass">
       <input type="submit" value="Login" name="submit" class="btn btn-info">
     </form>
   </div>
-  <div *ngIf="usr">
+  <div *ngIf="isLogin">
       
     <input type="submit" value="Logout" (click)="logout()" class="btn btn-info">
   </div>
